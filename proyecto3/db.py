@@ -3,11 +3,14 @@ MYSQL = {
 'default': {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('DB_NAME'),          # Nombre de la base de datos
-        'USER': os.getenv('DB_USER'),          # Usuario
-        'PASSWORD': os.getenv('DB_PASSWORD'),  # Contraseña
-        'HOST': os.getenv('DB_HOST'),          # Host
-        'PORT': os.getenv('DB_PORT', '3306'),  # Puerto (3306 por defecto)
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST', 'localhost'),
+        'PORT': os.environ.get('DB_PORT', '3306'),
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
     }
-    }
+}
 }
