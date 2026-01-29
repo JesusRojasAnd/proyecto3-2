@@ -129,3 +129,8 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+for var in ['DB_NAME', 'DB_USER', 'DB_PASSWORD', 'DB_HOST']:
+    value = os.getenv(var)
+    if not value:
+        raise ValueError(f"La variable de entorno {var} no está definida")

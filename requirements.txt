@@ -6,3 +6,4 @@ mysqlclient
 dj-database-url
 django-crispy-forms
 crispy-bootstrap5
+Pillow
